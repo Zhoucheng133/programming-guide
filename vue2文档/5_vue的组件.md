@@ -156,7 +156,56 @@ components:{
     }
     methods: {
     	go:function(){
-        this.$emit("emitVariable", msg)
+        this.$emit("emitVariable", this.msg)
+      }
+  	}
+  }
+</script>
+```
+
+### 父组件调用子组件中的函数
+
+使用`ref`来调用子组件的函数
+
+父组件：
+
+```vue
+<template>
+	<div>
+    <childPart ref="childRef"></childPart>
+    <button @click="useChildFunction">这是一个按钮</button>
+  </div>
+</template>
+
+<script>
+  import childPart from '@/components/childPartView.vue';
+  
+  export default {
+		components:{
+        childPart
+    },
+    methods:{
+      useChildFunction(){
+        this.$refs.childRef.childFunction();
+      }
+    }
+  }
+</script>
+```
+
+子组件：
+
+```vue
+<template>
+	<div>
+     
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+    	childFunction(){
+        // 子组件的函数
       }
   	}
   }
