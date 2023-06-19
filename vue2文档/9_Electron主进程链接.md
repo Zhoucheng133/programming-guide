@@ -38,6 +38,10 @@
         console.log("完成执行");
       },
       mainMethod(){
+        // 如果进程已经销毁了，那么可以直接退出
+        if(this.isDestroyed)
+          return;
+        // 注意传递的参数
         ipcRenderer.send('ElectronMain', this.arg);
       }
     }
@@ -48,3 +52,16 @@
   /* ... */
 </style>
 ```
+
+对于客户端`background.js`
+
+```js
+// 注意导入ipcMain，可以直接接在其它包的后面
+import { /* ... */ , ipcMain } from 'electron';
+
+// ... 其它关于页面等代码
+
+// arg为参数，可以为多个
+ipcMain.on("ElectronMain", async(event, arg))
+```
+
