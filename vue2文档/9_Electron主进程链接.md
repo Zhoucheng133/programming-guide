@@ -34,8 +34,8 @@
       ipcRenderer.on('ElectronMainResult', this.mainResult);
     },
     methods:{
-      mainResult(){
-        console.log("完成执行");
+      mainResult(event, arg_back){
+        console.log("完成执行，结果为:" + arg_back);
       },
       mainMethod(){
         // 如果进程已经销毁了，那么可以直接退出
@@ -62,6 +62,10 @@ import { /* ... */ , ipcMain } from 'electron';
 // ... 其它关于页面等代码
 
 // arg为参数，可以为多个
-ipcMain.on("ElectronMain", async(event, arg))
+ipcMain.on("ElectronMain", async(event, arg)){
+  // ...执行的内容
+  // 返回的函数，可以添加参数
+  event.reply('ElectronMainResult', 'Feedback!'');
+}
 ```
 
