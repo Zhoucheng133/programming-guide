@@ -10,7 +10,7 @@
 vue add electron-builder
 ```
 
-注意，有`node`版本的限制，高版本可能无法安装
+注意，有`node`版本的限制，高版本可能无法安装，推荐使用版本为node @14.18
 
 ## 设定窗口
 
@@ -78,4 +78,13 @@ vue add electron-builder
   </style>
   ```
 
+  另注意，窗口内容需要设置`margin-top`，如下：
   
+  ```css
+  .content{
+    margin-top: 30px
+  }
+  ```
+  
+  
+
