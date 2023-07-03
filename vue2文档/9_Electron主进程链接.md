@@ -62,10 +62,10 @@ import { /* ... */ , ipcMain } from 'electron';
 // ... 其它关于页面等代码
 
 // arg为参数，可以为多个
-ipcMain.on("ElectronMain", async(event, arg)){
-  // ...执行的内容
-  // 返回的函数，可以添加参数
-  event.reply('ElectronMainResult', 'Feedback!'');
-}
+ipcMain.on("ElectronMain", async (event, arg) => {
+	// ...执行的内容
+	// 返回的函数，可以添加参数
+	event.reply('ElectronMainResult', 'Feedback!');
+});
 ```
 
