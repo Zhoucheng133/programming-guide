@@ -94,3 +94,18 @@ router主要用来将不同的URL映射到不同的页面，比如说
   
   这样的操作会自动根据你浏览器的URL地址跳转到相应的页面
 
+## 跳转路由
+
+```javascript
+directLink(url){
+	this.$router.push(url)
+}
+```
+
+## 重新定向
+
+```javascript
+const routes = [{ path: '/home', redirect: '/' }]
+// 也就是说访问/home会自动跳转到/
+```
+
