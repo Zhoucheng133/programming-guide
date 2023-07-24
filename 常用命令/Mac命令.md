@@ -1,4 +1,4 @@
-# 常用命令
+# Mac常用命令
 
 ## 设置终端代理
 
@@ -13,3 +13,18 @@ export https_proxy=$http_proxy
 curl cip.cc
 ```
 
+## 查看IP地址
+
+- IPv4地址
+
+  ```bash
+  curl 4.ipw.cn
+  ```
+
+- IPv6地址
+
+  ```bash
+  curl 6.ipw.cn
+  ```
+
+  
