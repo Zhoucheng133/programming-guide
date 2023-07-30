@@ -85,13 +85,13 @@
 
   另附：关于Grid网格布局（等距）设计页面，[点此跳转到Gitee](https://gitee.com/Ryan-zhou/grid-layout-gui)
 
-  ## 作为单独行/列设计
+## 作为单独行/列设计
 
   可以用于替代`flex`布局，比如单独行：
 
   <img src="https://s2.loli.net/2023/07/30/YDifaoVc1SIHBWK.png"  width="500px">
 
-  其代码是这样的（`Container`)：
+  其代码是这样的(`Container`)：
 
   ```css
   .container{
