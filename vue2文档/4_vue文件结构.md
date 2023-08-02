@@ -34,8 +34,7 @@ export default {
 
     },
     methods: {
-
-        }
+      
     },
   	created: {
       
