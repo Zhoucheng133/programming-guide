@@ -4,7 +4,7 @@
 
 把外部的`Container`想象成一个网格，分割为长`x`，宽`y`的网格，然后根据所占长和宽来布置一个内容，譬如：
 
-![grid网格.png](https://s2.loli.net/2023/07/30/rIRdfqiWpEaDuY1.png)
+<img src="https://s2.loli.net/2023/07/30/rIRdfqiWpEaDuY1.png" width="500px">
 
 我们把外部的`Container`切分为长7宽5的网格，然后我们需要的是左上角4x3的内容，我们需要这样来设计：
 
