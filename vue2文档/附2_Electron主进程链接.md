@@ -6,6 +6,8 @@
 
 注意，以下内容基于Vue2 + Electron的实现，根据具体情况来进行修改
 
+### 第一种方法
+
 对于页面端：
 ```vue
 <template>
@@ -69,3 +71,46 @@ ipcMain.on("ElectronMain", async (event, arg) => {
 });
 ```
 
+### 第二个方法
+
+对于页面端
+
+```vue
+<template>
+  <div>
+    <button @click="mainMethod">调用主进程函数按钮</button>
+  </div>
+</template>
+
+<script>
+  // 确保导入了ipcRenderer
+  import { ipcRenderer } from 'electron';
+  export default{
+    beforeDestroy(){
+			ipcRenderer.removeAllListeners('ElectronMainResult');
+    }
+    data(){
+      return {
+        arg: "Hello world!"
+      }
+    }
+    created(){
+      // 对于主进程中的函数返回之后执行本页面中的什么函数
+      ipcRenderer.on('ElectronMainResult', this.mainResult);
+			ipcRenderer.removeAllListeners('ElectronMainResult');
+    },
+    methods:{
+      mainResult(event, arg_back){
+        console.log("完成执行，结果为:" + arg_back);
+      },
+      mainMethod(){
+        // 注意传递的参数
+        ipcRenderer.send('ElectronMain', this.arg);
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  /* ... */
+</style>
