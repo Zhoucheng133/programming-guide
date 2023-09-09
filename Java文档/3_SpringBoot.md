@@ -136,3 +136,29 @@ public class user {
 }
 ```
 
+## 文件处理
+
+同样使用`Controller`接收文件
+
+```java
+@RequestMapping("/upload")
+String upload(@RequestParam("file") MultipartFile file) throws IOException{
+    // 判断文件是否为空
+    if(!file.isEmpty()){
+        byte[] bytes = file.getBytes();
+      	// 在项目中创建的文件夹
+        String uploadDir = "uploads";
+      	// 获取文件名，注意防止重名
+        String fileName = file.getOriginalFilename();
+      	// 创建路径
+        Path path = Path.of(uploadDir + File.separator + fileName);
+      	// 创建目录
+        Files.createDirectories(path.getParent());、
+        // 存储文件
+        Files.write(path, bytes);
+        return "上传成功!";
+    }
+    return "上传失败!";
+}
+```
+
