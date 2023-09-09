@@ -45,3 +45,88 @@ server.port=1234
 server.servlet.context-path=/api
 ```
 
+## Controller
+
+添加一个Controller应该这么写：
+
+```java
+package /* 这是你的包路径，自动生成 */;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+/*
+也可以分开写：
+@Controller
+@ResponseBody
+*/
+@RestController
+public class Controller{
+  // 这里写URL地址
+  @RequestMapping("/request")
+  void request(){
+    // 浏览器打开/request时候的操作
+  }
+  
+  // 当然也可以添加返回值
+  String request(){
+    // 添加一个返回值
+    return "Hello world!";
+  }
+}
+```
+
+### LomBok
+
+`LomBok`在请求的时候可以返回一个`JavaScript`对象，在`Java`中以类的形式存在
+
+```java
+import lombok.Data;
+
+@Data
+public class user {
+    int id;
+    String name;
+    String pass;
+    String status;
+    String createDate;
+    /**
+     * @param id
+     * @param name
+     * @param pass
+     * @param status
+     * @param createDate
+     */
+    public user(int id, String name, String pass, String status, String createDate) {
+        this.id = id;
+        this.name = name;
+        this.pass = pass;
+        this.status = status;
+        this.createDate = createDate;
+    }
+}
+```
+
+以这个类返回到前端是一个对象：
+
+```java
+@RequestMapping("getUser")
+  user getUser(@RequestParam(name = "id") String id){
+      user data=userForm.getUser(Integer.parseInt(id));
+      return data;
+  }
+```
+
+得到的结果是：
+
+```json
+{
+    "id": 1,
+    "name": "zhoucheng",
+    "pass": "12345678",
+    "status": "user",
+    "createDate": "2023-09-09 15:43:50"
+}
+```
+
