@@ -86,5 +86,18 @@ vue add electron-builder
   }
   ```
   
-  
+
+## 使用node组件
+
+如果需要`node`组件，例如`fs`或者`path`等， 需要在`webPreferences`修改设置：
+
+```js
+win = new BrowserWindow({
+		// 其它代码...
+		webPreferences: {
+			nodeIntegration:true,	// 这里修改为true
+			contextIsolation:false,
+		}
+	})
+```
 

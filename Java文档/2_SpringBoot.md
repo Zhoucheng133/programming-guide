@@ -153,7 +153,7 @@ String upload(@RequestParam("file") MultipartFile file) throws IOException{
       	// 创建路径
         Path path = Path.of(uploadDir + File.separator + fileName);
       	// 创建目录
-        Files.createDirectories(path.getParent());、
+        Files.createDirectories(path.getParent());
         // 存储文件
         Files.write(path, bytes);
         return "上传成功!";
