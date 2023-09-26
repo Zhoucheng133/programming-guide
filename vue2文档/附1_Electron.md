@@ -4,13 +4,40 @@
 
 ## 如何安装
 
-通过命令以下命令来安装
+1. **添加到Vue**
 
-```bash
-vue add electron-builder
-```
+   通过命令以下命令来安装
 
-注意，有`node`版本的限制，高版本可能无法安装，推荐使用版本为node @14.18
+   ```bash
+   vue add electron-builder
+   ```
+
+   注意，有`node`版本的限制，**高版本可能无法安装**
+
+2. **修改配置**
+
+   在`vue.config.js`文件中修改：
+
+   ```js
+   module.exports = {
+   	pluginOptions: {
+       // 添加这里
+   		electronBuilder: {
+   			nodeIntegration: true,
+         // 对于macOS，分别导出x64版本和Apple Silicon版本
+   			builderOptions: {
+   				artifactName: '${productName}-${version}-${os}-${arch}.${ext}',
+   				mac: {
+   					target: {
+   						arch: ['x64', 'arm64'],
+   						target: 'zip'
+   					}
+   				}
+   			},
+   		},
+   	},
+   }
+   ```
 
 ## 设定窗口
 
