@@ -1,0 +1,143 @@
+# 数组
+
+`JavaScript`中的数组可以包含多个不同类型的值，譬如：
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}];
+```
+
+下面来介绍一些常用的数组方法
+
+**注意，下面的方法中带\*的表示会改变数组本身，而不带\*的表示有一个返回值，需要输出或者赋值**
+
+## filter
+
+`Filter`这个方法可以快速地筛选出所需要的变量：
+
+```js
+var a=["hello world!", "hello js", "testString"];
+a=a.filter(function(item){
+    return item.includes("hello")
+});
+// 等同于 a = a.filter(item => item.includes("hello"));
+console.log(a);
+// 输出结果：[ 'hello world!', 'hello js' ]
+```
+
+## find
+
+`find`这个方法可以找到数组中的某个值：
+
+```js
+var a=[1,2,3,4,5,6];
+console.log(a.find(item => item>5))
+// 输出结果为6
+```
+
+注意：
+
+1. 如果有多个匹配项，只会返回第一个：
+
+   ```js
+   var a=[1,2,3,4,5,6];
+   console.log(a.find(item => item>2))
+   // 输出结果为3
+   ```
+
+2. 如果没有找到，则会返回`undefind`
+
+   ```js
+   var a=[1,2,3,4,5,6];
+   console.log(a.find(item => item>10))
+   // 输出结果为undefind
+   ```
+
+## findIndex
+
+`find`这个方法可以找到数组中的某个值的**下标**：
+
+```js
+var a=[1,2,3,4,5,6];
+console.log(a.findIndex(item => item>5))
+// 输出结果为5
+```
+
+注意：
+
+1. 如果有多个匹配项，只会返回第一个：
+2. 如果没有找到，则会返回**-1**
+
+## inludes
+
+`inlcudes`这个方法可以判断某个数组是否包含某个对象，包含返回`true`，不包含返回`false`
+
+```js
+var a=[1,2,3,4,5,6];
+console.log(a.includes(3))
+// 输出为true
+```
+
+**索引的开始位置**
+
+```js
+const arr = ["a", "b", "c"];
+
+arr.includes("a", -100); // true
+arr.includes("a", -2); // false
+```
+
+注意：多个参数不能使用数组：
+
+```js
+var a=[1,2,3,4,5,6];
+console.log([1,2])
+// 输出为false
+```
+
+如果要判断是否包含多个值直接使用`,`隔开：
+
+```js
+var a=[1,2,3,4,5,6];
+console.log(1,2)
+// 输出为true
+```
+
+## indexOf
+
+`indexOf`可以输出某个数组中的值的索引
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}];
+console.log(a.indexOf('hello world!'));
+// 输出为1
+```
+
+注意：如果不存在这个值，则返回**-1**
+
+## concat
+
+`concat`可以拼接多个数组
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}];
+var b=[1, 2, 3, 4]
+console.log(a.concat(b));
+// 输出结果：[ 1, 'hello world!', 3.14, { name: 'zhouc' }, 1, 2, 3, 4 ]
+```
+
+当然也可以拼接非数组，例如这样的：
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}];
+var b="hello js"
+console.log(a.concat(b));
+// 输出结果：[ 1, 'hello world!', 3.14, { name: 'zhouc' }, 'hello js' ]
+```
+
+## slice
+
+`slice`方法用于对数组进行切分
+
+```js
+```
+
