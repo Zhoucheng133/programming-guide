@@ -139,5 +139,57 @@ console.log(a.concat(b));
 `slice`方法用于对数组进行切分
 
 ```js
+array.slice(startIndex, endIndex)
+// startIndex: 开始的索引
+// endIndex: 结束的索引
 ```
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}, 1, 2, 3, 4, 5, 6];
+console.log(a.slice(2, 5));
+// 输出结果：[ 3.14, { name: 'zhouc' }, 1 ]
+```
+
+可以使用逆向索引：
+
+```js
+var a=[1, "hello world!", 3.14, {name:'zhouc'}, 1, 2, 3, 4, 5, 6];
+console.log(a.slice(-3, -1));
+// 输出结果：[ 4, 5 ]
+```
+
+注意： **包括开始索引，不包括结束索引**
+
+## map
+
+`map`方法用于对所有的数组值进行处理
+
+```js
+const array1 = [1, 4, 9, 16];
+console.log(array1.map((x) => x * 2));
+// 输出结果：[2, 8, 18, 32]
+```
+
+注意，**使用map方法需要确保每个值的类型相同**，防止出现错误：
+
+```js
+const array1 = [1, 4, "hello", 16];
+console.log(array1.map((x) => x * 2));
+// 输出结果：[2, 8, NaN, 32]
+// 出现无法处理的问题
+```
+
+## push*
+
+## pop*
+
+## shift*
+
+## unshift*
+
+## splice*
+
+## sort*
+
+## reverse*
 
