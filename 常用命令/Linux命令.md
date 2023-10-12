@@ -146,3 +146,8 @@ server{
 server.servlet.context-path=/api
 ```
 
+### 重启nginx
+
+```bash
+sudo systemctl restart nginx
+```
