@@ -13,15 +13,10 @@ return Container(
       // 添加输入框的Controller
       controller: newName,
       decoration: InputDecoration(
-        enabledBorder: OutlineInputBorder(
-          // 设置失去焦点时的边框颜色
-          borderSide: BorderSide(color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          // 设置获取焦点时的边框颜色
-          borderSide: BorderSide(color: Colors.transparent),
-        ),
-        contentPadding: EdgeInsets.all(10),
+        isCollapsed: true,
+        contentPadding: EdgeInsets.symmetric(vertical: 0),
+        // 根据情况设置高度，0的时候为尽可能最小化高度
+        border: OutlineInputBorder(borderSide: BorderSide.none),
       ),
       autocorrect: false,
       enableSuggestions: false,
