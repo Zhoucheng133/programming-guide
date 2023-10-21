@@ -119,7 +119,6 @@ return Scaffold(
 对于`BottomNavigationBar`，会出现当使用软键盘的时候被软键盘托起，这时候需要这样修改：
 
 ```dart
-String title="主页"
 return Scaffold(
   // 添加下面这行
   resizeToAvoidBottomInset: false,
