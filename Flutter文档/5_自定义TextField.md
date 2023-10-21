@@ -6,7 +6,7 @@
 return Container(
   decoration: BoxDecoration(
     
-  )
+  ),
   child: Padding(
     padding: const EdgeInsets.all(10.0),
     child: TextField(
@@ -23,6 +23,23 @@ return Container(
     ),
   ),
 );
+```
+
+## 设置TextField中文本大小
+
+```dart
+return Container(
+  decoration: BoxDecoration(
+    
+  ),
+  child: TextField(
+    controller: inputController,
+    style: TextStyle(
+      // 在这里输入需要的文本大小
+      fontSize: 14,
+    )
+  )
+)
 ```
 
 ## 添加TextField中按钮
